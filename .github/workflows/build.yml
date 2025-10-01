@@ -40,7 +40,7 @@ jobs:
 
     - name: Run Build
       run: |
-        go run -tags "with_wireguard" ./cmd/sing-box run -c ./test/config/sample.json
+        go run -tags "with_wireguard with_gvisor" ./cmd/sing-box run -c ./test/config/sample.json
 
     - name: Clean
       if: always()
