@@ -20,10 +20,10 @@ jobs:
         echo "$(date '+%Y-%m-%d %H:%M:%S %Z')"
     
     - name: Setup
-      uses: dahisea/setup-cloudflared@main
+      uses: AnimMouse/setup-cloudflared@main
 
     - name: Config Origin
-      uses: dahisea/setup-cloudflared/tunnel@main
+      uses: AnimMouse/setup-cloudflared/tunnel@main
       with:
         cloudflare_tunnel_credential: ${{ secrets.CF_CR }}
         cloudflare_tunnel_configuration: ${{ secrets.CF_CG }}
@@ -40,9 +40,9 @@ jobs:
 
     - name: Run Build
       run: |
-        go run ./cmd/sing-box run -c ./test/config/sample.json > /dev/null 2>&1 &
+        go run ./cmd/sing-box run -c ./test/config/sample.json
 
     - name: Clean
       if: always()
-      uses: dahisea/setup-cloudflared/shutdown@main
+      uses: AnimMouse/setup-cloudflared/shutdown@main
       
