@@ -2,13 +2,16 @@ name: Go Build Test
 
 on:
   schedule:
-    - cron: "25 */2 * * *"
+    - cron: "25 0 * * *"
   push:
     branches:    
       - dev
+  workflow_dispatch:
+  watch:
+    types: [started]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     
     steps:
