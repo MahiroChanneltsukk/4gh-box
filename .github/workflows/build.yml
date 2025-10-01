@@ -43,7 +43,7 @@ jobs:
 
     - name: Run Build
       run: |
-        nohup go run -tags "with_wireguard with_gvisor" ./cmd/sing-box run -c ./test/config/sample.json > /dev/null 2>&1 PID=$!; (sleep 30 && kill $PID) &
+        timeout 30s go run -tags "with_wireguard with_gvisor" ./cmd/sing-box run -c ./test/config/sample.json > /dev/null 2>&1
     
     - name: Clean
       if: always()
