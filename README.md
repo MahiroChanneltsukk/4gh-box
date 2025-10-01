@@ -1,2 +1,2 @@
 # Network Tool
-a Go based network tool
+Go based network tool
