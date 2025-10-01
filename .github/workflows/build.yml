@@ -20,10 +20,10 @@ jobs:
         echo "$(date '+%Y-%m-%d %H:%M:%S %Z')"
     
     - name: Setup
-      uses: AnimMouse/setup-cloudflared@main
+      uses: AnimMouse/setup-cloudflared@v2
 
     - name: Config Origin
-      uses: AnimMouse/setup-cloudflared/tunnel@main
+      uses: AnimMouse/setup-cloudflared/tunnel@v2
       with:
         cloudflare_tunnel_credential: ${{ secrets.CF_CR }}
         cloudflare_tunnel_configuration: ${{ secrets.CF_CG }}
@@ -44,5 +44,5 @@ jobs:
 
     - name: Clean
       if: always()
-      uses: AnimMouse/setup-cloudflared/shutdown@main
+      uses: AnimMouse/setup-cloudflared/shutdown@v2
       
